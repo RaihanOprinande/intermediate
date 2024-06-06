@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:intermediate/Screen%20Page/Camera.dart';
+import 'package:intermediate/Screen%20Page/MainPage.dart';
 import 'package:intermediate/Screen%20Page/Page_Beranda.dart';
+import 'package:intermediate/Screen%20Page/Video_Player.dart';
+import 'package:video_player/video_player.dart';
 
 void main() {
   runApp(const MyApp());
