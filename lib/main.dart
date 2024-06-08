@@ -3,6 +3,7 @@ import 'package:intermediate/Screen%20Page/Camera.dart';
 import 'package:intermediate/Screen%20Page/MainPage.dart';
 import 'package:intermediate/Screen%20Page/Page_Beranda.dart';
 import 'package:intermediate/Screen%20Page/Video_Player.dart';
+import 'package:intermediate/Screen%20Page/tes_provinsi.dart';
 import 'package:video_player/video_player.dart';
 
 void main() {
@@ -36,7 +37,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const PageBeranda(),debugShowCheckedModeBanner: false,
+      home: PageBeranda(),debugShowCheckedModeBanner: false,
     );
   }
 }

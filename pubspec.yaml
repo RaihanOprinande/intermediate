@@ -71,6 +71,7 @@ flutter:
      - assets/gambar/Autumn.jpg
      - assets/gambar/Linkin Park.jpg
      - assets/gambar/politeknikNegeriPadang.jpg
+     - assets/gambar/acehu.jpeg
 #     - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

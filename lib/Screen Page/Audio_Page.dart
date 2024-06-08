@@ -19,7 +19,7 @@ class _AudioPageState extends State<AudioPage> {
   Future<List<Datum>?> getAudio() async {
     try {
       http.Response response = await http
-          .get(Uri.parse("http://192.168.1.11/intermediate/audio.php"));
+          .get(Uri.parse("http://192.168.1.8/intermediate/audio.php"));
       return audioFromJson(response.body).data;
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -94,10 +94,14 @@ class _AudioPageState extends State<AudioPage> {
                             //       MaterialPageRoute(
                             //           builder: (_) => DetailEdukasi(data)));
                             // },
-                            child: Container(
-                              child: Text(
-                                "${data?.lagu}"
-                              ),
+                            child: Row(
+                              children: [
+                                Text(
+                                    "${data?.lagu}"
+                                ),
+                                PlayerWidget(url: urlExample, fileName: nameExample),
+                              ],
+
                             )
                           ),
                         );
