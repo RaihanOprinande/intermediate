@@ -54,7 +54,7 @@ class MainPage extends StatelessWidget {
                   width: 320,
                   height: 70,
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.all(Radius.circular(90.0)),
                       color: Colors.white,
                       boxShadow: [BoxShadow(
                         color: Colors.grey.withOpacity(0.5), // Warna bayangan

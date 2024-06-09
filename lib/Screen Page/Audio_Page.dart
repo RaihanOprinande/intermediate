@@ -19,7 +19,7 @@ class _AudioPageState extends State<AudioPage> {
   Future<List<Datum>?> getAudio() async {
     try {
       http.Response response = await http
-          .get(Uri.parse("http://192.168.1.8/intermediate/audio.php"));
+          .get(Uri.parse("http://192.168.1.23/intermediate/audio.php"));
       return audioFromJson(response.body).data;
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -34,41 +34,61 @@ class _AudioPageState extends State<AudioPage> {
 
   List<Datum>? filterDevice;
   List<Datum>? listDevice;
+  List<Datum>? urlExample;
   TextEditingController cari = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    final String urlExample = "http://localhost/intermediate/audio/JVKE%20-%20this%20is%20what%20autumn%20feels%20like.mp3";
-    final String nameExample = "this is what autumn feels like";
 
     return Scaffold(
       appBar: AppBar(
-
+        backgroundColor: Colors.indigo,
+        title: Text(
+          "Songs"
+        ),
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // TextFormField(
-          //   controller: cari,
-          //   onChanged: (value) {
-          //     setState(() {
-          //       filterDevice = listDevice
-          //           ?.where((element) =>
-          //       element.lagu!
-          //           .toLowerCase()
-          //           .contains(value.toLowerCase()) ||
-          //           element.audio!
-          //               .toLowerCase()
-          //               .contains(value.toLowerCase()))
-          //           .toList();
-          //     });
-          //   },
-          //   decoration: InputDecoration(
-          //     hintText: "Search",
-          //     prefixIcon: Icon(Icons.search),
-          //   ),
-          // ),
+          Padding(padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            child:
+            Text("Album"),
+          ),
+          Padding(padding: EdgeInsets.all(40.0),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                width: 100,
+                height: 100,
+                decoration: BoxDecoration(
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(5),
+                    child: Image.asset(
+                    'assets/gambar/LinkinPark.jpg',
+                    )
+                ),
+              ),
+              SizedBox(width: 40,),
+              Container(
+                width: 100,
+                height: 100,
+                decoration: BoxDecoration(
+                ),
+                child: ClipRRect(
+                    borderRadius: BorderRadius.circular(5),
+                    child: Image.asset(
+                      'assets/gambar/Autumn.jpg',
+                    )
+                ),
+              )
+            ],
+          ),
+          ),
+
           Padding(
-            padding: EdgeInsets.all(8.8),
+            padding: EdgeInsets.all(4.8),
           ),
           Expanded(
             child: FutureBuilder(
@@ -86,24 +106,31 @@ class _AudioPageState extends State<AudioPage> {
                         Datum? data = filterDevice?[index];
                         return Padding(
                           padding: const EdgeInsets.all(10),
-                          child: GestureDetector(
-                            // onTap: () {
-                            //   //   //ini untuk ke detail
-                            //   Navigator.push(
-                            //       context,
-                            //       MaterialPageRoute(
-                            //           builder: (_) => DetailEdukasi(data)));
-                            // },
-                            child: Row(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(
-                                    "${data?.lagu}"
-                                ),
-                                PlayerWidget(url: urlExample, fileName: nameExample),
-                              ],
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(8.0),
+                                      child: Image.network(
+                                        "http://192.168.1.23/intermediate/gambar/${data?.photo}",
+                                        height: 50,
+                                        width: 50,
+                                      ),
+                                    ),
+                                    SizedBox(width: 10,),
+                                    Text(
+                                        "${data?.audio}"
+                                    ),
+                                    Expanded(child: PlayerWidget(url: "http://localhost/intermediate/audio/${data?.audio}", fileName: data!.lagu),
+                                    )
 
+                                  ],
+                                )
+                              ],
                             )
-                          ),
                         );
                       });
                 } else if (snapshot.hasError) {
@@ -122,47 +149,6 @@ class _AudioPageState extends State<AudioPage> {
           )
         ],
       ),
-        // child: Column(
-        //   crossAxisAlignment: CrossAxisAlignment.start,
-        //   children: [
-        //         Padding(padding: EdgeInsets.all(10.0),
-        //         child: Row(
-        //           children: [
-        //             Container(
-        //               width: 130,
-        //               height: 130,
-        //               decoration: BoxDecoration(
-        //                 borderRadius: BorderRadius.circular(10),
-        //                 color: Colors.black
-        //               ),
-        //             ),
-        //             SizedBox(width: 20,),
-        //             Container(
-        //               width: 130,
-        //               height: 130,
-        //               decoration: BoxDecoration(
-        //                   borderRadius: BorderRadius.circular(10),
-        //                   color: Colors.black
-        //               ),
-        //             ),
-        //             SizedBox(width: 20,),
-        //             Container(
-        //               width: 130,
-        //               height: 130,
-        //               decoration: BoxDecoration(
-        //                   borderRadius: BorderRadius.circular(10),
-        //                   color: Colors.black
-        //               ),
-        //             ),
-        //           ],
-        //         ),
-        //         ),
-        //     SizedBox(height: 40,),
-        //     Text("For you"),
-        //     Padding(padding: EdgeInsets.all(10),
-        //     )
-        //   ],
-        // ),
       );
   }
 }
