@@ -5,6 +5,7 @@ import 'package:intermediate/Screen%20Page/Camera.dart';
 import 'package:intermediate/Screen%20Page/Mao.dart';
 import 'package:intermediate/Screen%20Page/Provinsi_Page.dart';
 import 'package:intermediate/Screen%20Page/Video_Player.dart';
+import 'package:intermediate/Screen%20Page/Video_Playlist_Page.dart';
 import 'package:intermediate/model/Player_Widget.dart';
 import 'package:video_player/video_player.dart';
 
@@ -105,6 +106,21 @@ class PageBeranda extends StatelessWidget {
                 textColor: Colors.white,
                 child: const Text(
                   'Rumah Sakit',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+                ),
+              ),
+              SizedBox(height: 10,),
+              MaterialButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const VideoPlaylistPage() ));
+                },
+                color: Colors.green,
+                textColor: Colors.white,
+                child: const Text(
+                  'Video Playlist',
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
                 ),
               ),
