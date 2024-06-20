@@ -19,7 +19,7 @@ class _AudioPageState extends State<AudioPage> {
   Future<List<Datum>?> getAudio() async {
     try {
       http.Response response = await http
-          .get(Uri.parse("http://192.168.1.23/intermediate/audio.php"));
+          .get(Uri.parse("http://169.254.204.46/intermediate/audio.php"));
       return audioFromJson(response.body).data;
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -115,7 +115,7 @@ class _AudioPageState extends State<AudioPage> {
                                     ClipRRect(
                                       borderRadius: BorderRadius.circular(8.0),
                                       child: Image.network(
-                                        "http://192.168.1.23/intermediate/gambar/${data?.photo}",
+                                        "http://169.254.204.46/intermediate/gambar/${data?.photo}",
                                         height: 50,
                                         width: 50,
                                       ),

@@ -3,7 +3,9 @@ import 'package:intermediate/Screen%20Page/Audio_Page.dart';
 import 'package:intermediate/Screen%20Page/Audio_Player.dart';
 import 'package:intermediate/Screen%20Page/Camera.dart';
 import 'package:intermediate/Screen%20Page/Mao.dart';
+import 'package:intermediate/Screen%20Page/Notes_Page.dart';
 import 'package:intermediate/Screen%20Page/Provinsi_Page.dart';
+import 'package:intermediate/Screen%20Page/Soccer_Page/List_Page.dart';
 import 'package:intermediate/Screen%20Page/Video_Player.dart';
 import 'package:intermediate/Screen%20Page/Video_Playlist_Page.dart';
 import 'package:intermediate/model/Player_Widget.dart';
@@ -121,6 +123,36 @@ class PageBeranda extends StatelessWidget {
                 textColor: Colors.white,
                 child: const Text(
                   'Video Playlist',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+                ),
+              ),
+              SizedBox(height: 10,),
+              MaterialButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => NotesPage() ));
+                },
+                color: Colors.green,
+                textColor: Colors.white,
+                child: const Text(
+                  'Notes',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+                ),
+              ),
+              SizedBox(height: 10,),
+              MaterialButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => ListSoccerPage() ));
+                },
+                color: Colors.green,
+                textColor: Colors.white,
+                child: const Text(
+                  'Soccer',
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
                 ),
               ),

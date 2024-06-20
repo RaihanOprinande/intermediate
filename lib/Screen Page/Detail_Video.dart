@@ -26,7 +26,7 @@ class _DetailVideoState extends State<DetailVideo> {
 
   Future<void> fetchVideoUrl() async {
     // Gantilah URL ini dengan URL endpoint API Anda
-    final response = await http.get(Uri.parse('http://192.168.1.8/intermediate/video/video.php'));
+    final response = await http.get(Uri.parse('http://192.168.1.168/intermediate/video/video.php'));
 
     if (response.statusCode == 200) {
       final data = json.decode(response.body);
@@ -58,33 +58,26 @@ class _DetailVideoState extends State<DetailVideo> {
     return MaterialApp(
       title: 'Video Demo',
       home: Scaffold(
-        body: _isLoading
-            ? Center(child: CircularProgressIndicator())
-            : Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const Text(
-              'Sample Video',
-              style: TextStyle(
-                  color: Colors.brown,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20),
-            ),
-            SizedBox(
-              height: 30,
-            ),
-            Center(
-              child: _controller!.value.isInitialized
-                  ? AspectRatio(
-                aspectRatio: _controller!.value.aspectRatio,
-                child: VideoPlayer(_controller!),
-              )
-                  : Container(
-                child: const Text('Loading Video...'),
+        body: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child:_isLoading
+              ? Center(child: CircularProgressIndicator())
+              : Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Center(
+                child: _controller!.value.isInitialized
+                    ? AspectRatio(
+                  aspectRatio: _controller!.value.aspectRatio,
+                  child: VideoPlayer(_controller!),
+                )
+                    : Container(
+                  child: const Text('Loading Video...'),
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
         floatingActionButton: _isLoading
             ? null
