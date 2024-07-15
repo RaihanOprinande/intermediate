@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:intermediate/Screen%20Page/Soccer_Page/Detail_Page.dart';
 import 'package:intermediate/model/Soccer_Model.dart';
 
 class ListSoccerPage extends StatefulWidget {
@@ -60,26 +61,24 @@ class _ListSoccerPageState extends State<ListSoccerPage> {
                       child:
                       Container(
                         child: Column(
-
-
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           GestureDetector(
                             onTap: () {
-                              // Navigator.push(context,
-                              //     MaterialPageRoute(builder: (_) => DetailVideo(data: data)));
+                              Navigator.push(context,
+                                  MaterialPageRoute(builder: (_) => DetailSoccer(data: data)));
                             },
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                // ClipRRect(
-                                //   borderRadius: BorderRadius.circular(8.0),
-                                //   child: Image.network(
-                                //     "http://192.168.1.168/intermediate/video/thumbnail/${data?.thumbnail}",
-                                //     height: 50,
-                                //     width: 50,
-                                //   ),
-                                // ),
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  child: Image.network(
+                                    "${data?.strPoster}",
+                                    height: 50,
+                                    width: 50,
+                                  ),
+                                ),
                                 SizedBox(width: 10,),
                                 Text(
                                     "${data?.strFilename}"

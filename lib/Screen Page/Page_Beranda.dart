@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:intermediate/Screen%20Page/Audio_Page.dart';
 import 'package:intermediate/Screen%20Page/Audio_Player.dart';
+import 'package:intermediate/Screen%20Page/CRUD_Pegawai/List_Page.dart';
 import 'package:intermediate/Screen%20Page/Camera.dart';
+import 'package:intermediate/Screen%20Page/Delete%20Mahasiswa/List.dart';
+import 'package:intermediate/Screen%20Page/Demo%20UAS/List_wisata.dart';
 import 'package:intermediate/Screen%20Page/Mao.dart';
 import 'package:intermediate/Screen%20Page/Notes_Page.dart';
 import 'package:intermediate/Screen%20Page/Provinsi_Page.dart';
@@ -153,6 +156,51 @@ class PageBeranda extends StatelessWidget {
                 textColor: Colors.white,
                 child: const Text(
                   'Soccer',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+                ),
+              ),
+              SizedBox(height: 10,),
+              MaterialButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => ListPagePegawai() ));
+                },
+                color: Colors.green,
+                textColor: Colors.white,
+                child: const Text(
+                  'Pegawai',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+                ),
+              ),
+              SizedBox(height: 10,),
+              MaterialButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => ListSekolah() ));
+                },
+                color: Colors.green,
+                textColor: Colors.white,
+                child: const Text(
+                  'delete sekolah',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+                ),
+              ),
+              SizedBox(height: 10,),
+              MaterialButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => ListWisata() ));
+                },
+                color: Colors.green,
+                textColor: Colors.white,
+                child: const Text(
+                  'Wisata',
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
                 ),
               ),

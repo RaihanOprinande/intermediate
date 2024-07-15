@@ -50,7 +50,7 @@ class Event {
     strSeason: json["strSeason"]?? '',
     dateEvent: DateTime.parse(json["dateEvent"]),
     strTime: json["strTime"]?? '',
-    strPoster: json["strPoster "]?? '',
+    strPoster: json["strPoster"]?? "https://w7.pngwing.com/pngs/144/913/png-transparent-no-symbol-sign-svg-miscellaneous-angle-text.png",
   );
 
   Map<String, dynamic> toJson() => {
@@ -60,6 +60,6 @@ class Event {
     "strSeason": strSeason,
     "dateEvent": "${dateEvent.year.toString().padLeft(4, '0')}-${dateEvent.month.toString().padLeft(2, '0')}-${dateEvent.day.toString().padLeft(2, '0')}",
     "strTime": strTime,
-    "strPoster ": strPoster,
+    "strPoster": strPoster,
   };
 }
